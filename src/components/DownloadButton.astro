@@ -1,0 +1,61 @@
+---
+export enum DownloadButtonTypes {
+	WINDOWS,
+	MAC,
+	MAC_ARM,
+	LINUX,
+}
+
+export interface Props {
+	type: DownloadButtonTypes
+}
+
+const { type } = Astro.props as Props
+
+const types = {
+	[DownloadButtonTypes.WINDOWS]: {
+		text: 'Windows',
+		url: 'https://github.com/chloebrett/mlvet/releases/download/0.0.1/MLVET-Setup-0.0.1.exe',
+		icon: './icons/os/windows.png',
+	},
+	[DownloadButtonTypes.MAC]: {
+		text: 'Mac',
+		url: 'https://github.com/chloebrett/mlvet/releases/download/0.0.1/MLVET-0.0.1.dmg',
+		icon: './icons/os/mac.png',
+	},
+	[DownloadButtonTypes.MAC_ARM]: {
+		text: 'Mac ARM',
+		url: 'https://github.com/chloebrett/mlvet/releases/download/0.0.1/MLVET-0.0.1-arm64.dmg',
+		icon: './icons/os/mac.png',
+	},
+	[DownloadButtonTypes.LINUX]: {
+		text: 'Linux',
+		url: 'https://github.com/chloebrett/mlvet/releases/download/0.0.1/MLVET-0.0.1.AppImage',
+		icon: './icons/os/linux.png',
+	},
+}
+---
+
+<a
+	href={types[type].url}
+	download
+	class="download-button flex flex-col justify-center items-center p-4 w-72 h-64 sm:h-32 sm:w-32 lg:h-44 lg:w-44 bg-yellow-500 rounded-md text-xl font-medium gap-y-2"
+>
+	<img class="os-icon w-1/2" src={types[type].icon} />
+	<div class="text-grey-700"></div>{types[type].text}
+</a>
+
+<style lang="scss">
+	.download-button {
+		transition: scale 0.12s ease-in-out;
+		scale: 1;
+
+		&:hover {
+			transition: scale 0.12s ease-in-out;
+			scale: 1.04;
+		}
+	}
+	.os-icon {
+		filter: contrast(75%);
+	}
+</style>
