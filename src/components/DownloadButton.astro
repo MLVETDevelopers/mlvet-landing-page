@@ -1,0 +1,63 @@
+---
+export enum DownloadButtonTypes {
+	WINDOWS,
+	MAC,
+	LINUX,
+}
+
+export interface Props {
+	type: DownloadButtonTypes
+}
+
+const { type } = Astro.props as Props
+
+const types = {
+	[DownloadButtonTypes.WINDOWS]: {
+		text: 'Download for Windows',
+		url: 'https://github.com/chloebrett/mlvet/releases/download/0.0.1/MLVET-Setup-0.0.1.exe',
+	},
+	[DownloadButtonTypes.MAC]: {
+		text: 'Download for MacOS',
+		url: 'https://github.com/chloebrett/mlvet/releases/download/0.0.1/MLVET-0.0.1.dmg',
+	},
+	[DownloadButtonTypes.LINUX]: {
+		text: 'Download for Linux',
+		url: 'https://github.com/chloebrett/mlvet/releases/download/0.0.1/MLVET-0.0.1.AppImage',
+	},
+}
+---
+
+<a
+	href={types[type].url}
+	download
+	class="download-button h-16 bg-yellow-500 rounded-md text-xl"
+>
+	{types[type].text}
+</a>
+
+<style>
+	.download-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 16px;
+		background-image: var(--link-gradient);
+		background-size: 400%;
+		border-radius: 0.5rem;
+		background-position: 100%;
+		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.link-card:is(:hover, :focus-within) {
+		background-position: 0;
+	}
+
+	.link-card:is(:hover, :focus-within) h2 {
+		color: #4f39fa;
+	}
+
+	.link-card:is(:hover, :focus-within) h2 span {
+		will-change: transform;
+		transform: translateX(2px);
+	}
+</style>
