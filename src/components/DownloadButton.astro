@@ -39,7 +39,7 @@ const types = {
 <a
 	href={types[type].url}
 	download
-	class="download-button flex flex-col justify-center items-center h-44 p-4 w-full sm:w-44 bg-yellow-500 rounded-md text-xl font-medium gap-y-2"
+	class="download-button flex flex-col justify-center items-center p-4 w-72 h-64 sm:h-32 sm:w-32 lg:h-44 lg:w-44 bg-yellow-500 rounded-md text-xl font-medium gap-y-2"
 >
 	<img class="os-icon w-1/2" src={types[type].icon} />
 	<div class="text-grey-700"></div>{types[type].text}
@@ -55,7 +55,6 @@ const types = {
 			scale: 1.04;
 		}
 	}
-
 	.os-icon {
 		filter: contrast(75%);
 	}
