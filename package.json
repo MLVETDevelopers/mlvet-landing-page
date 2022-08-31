@@ -9,7 +9,8 @@
   },
   "devDependencies": {
     "@astrojs/tailwind": "^1.0.0",
-    "astro": "^1.0.0-rc.8"
+    "astro": "^1.0.0-rc.8",
+    "sass": "^1.54.7"
   },
   "dependencies": {
     "prettier": "^2.7.1"

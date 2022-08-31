@@ -2,6 +2,7 @@
 export enum DownloadButtonTypes {
 	WINDOWS,
 	MAC,
+	MAC_ARM,
 	LINUX,
 }
 
@@ -13,16 +14,24 @@ const { type } = Astro.props as Props
 
 const types = {
 	[DownloadButtonTypes.WINDOWS]: {
-		text: 'Download for Windows',
+		text: 'Windows',
 		url: 'https://github.com/chloebrett/mlvet/releases/download/0.0.1/MLVET-Setup-0.0.1.exe',
+		icon: './icons/os/windows.png',
 	},
 	[DownloadButtonTypes.MAC]: {
-		text: 'Download for MacOS',
+		text: 'Mac',
 		url: 'https://github.com/chloebrett/mlvet/releases/download/0.0.1/MLVET-0.0.1.dmg',
+		icon: './icons/os/mac.png',
+	},
+	[DownloadButtonTypes.MAC_ARM]: {
+		text: 'Mac ARM',
+		url: 'https://github.com/chloebrett/mlvet/releases/download/0.0.1/MLVET-0.0.1-arm64.dmg',
+		icon: './icons/os/mac.png',
 	},
 	[DownloadButtonTypes.LINUX]: {
-		text: 'Download for Linux',
+		text: 'Linux',
 		url: 'https://github.com/chloebrett/mlvet/releases/download/0.0.1/MLVET-0.0.1.AppImage',
+		icon: './icons/os/linux.png',
 	},
 }
 ---
@@ -30,34 +39,24 @@ const types = {
 <a
 	href={types[type].url}
 	download
-	class="download-button h-16 bg-yellow-500 rounded-md text-xl"
+	class="download-button flex flex-col justify-center items-center h-44 p-4 w-full sm:w-44 bg-yellow-500 rounded-md text-xl font-medium gap-y-2"
 >
-	{types[type].text}
+	<img class="os-icon w-1/2" src={types[type].icon} />
+	<div class="text-grey-700"></div>{types[type].text}
 </a>
 
-<style>
+<style lang="scss">
 	.download-button {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 16px;
-		background-image: var(--link-gradient);
-		background-size: 400%;
-		border-radius: 0.5rem;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		transition: scale 0.12s ease-in-out;
+		scale: 1;
+
+		&:hover {
+			transition: scale 0.12s ease-in-out;
+			scale: 1.04;
+		}
 	}
 
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-	}
-
-	.link-card:is(:hover, :focus-within) h2 {
-		color: #4f39fa;
-	}
-
-	.link-card:is(:hover, :focus-within) h2 span {
-		will-change: transform;
-		transform: translateX(2px);
+	.os-icon {
+		filter: contrast(75%);
 	}
 </style>
