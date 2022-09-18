@@ -7,5 +7,16 @@ import CMS from "../../lib/cms";
 const landingPageContent  =  await CMS.landingPage();
 ---
 <Layout title="MLVET">
-		<Hero content={landingPageContent}/>
+	<Hero 
+		tagline={landingPageContent.attributes.tagline} 
+		downloadButtonText={landingPageContent.attributes.downloadButtonText} 
+		heroImage={landingPageContent.attributes.heroImage.data} 
+	/>
+		<div class="flex flex-col">
+		{landingPageContent.attributes.contentBlock.map((block) => {
+			return( 
+				<div>{JSON.stringify(block)}</div>
+			)
+		})}
+		</div>
 </Layout>

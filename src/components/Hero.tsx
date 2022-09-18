@@ -1,13 +1,17 @@
-import { LandingPageContent } from "../../shared/sharedTypes";
+import { ImageData } from "../../shared/sharedTypes";
 
 interface HeroProps {
-    content: LandingPageContent
+    tagline: string;
+    downloadButtonText: string;
+    heroImage: ImageData[];
 }
 
-const Hero = ({ content }: HeroProps) => {
+const Hero = ({ tagline, downloadButtonText, heroImage }: HeroProps) => {
     return (
         <div className="grid grid-cols-3 gap-6">
-            {content.attributes.tagline}
+            {tagline}
+            {downloadButtonText}
+            {JSON.stringify(heroImage)}
         </div>
     );
 }
