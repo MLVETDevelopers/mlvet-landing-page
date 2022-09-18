@@ -4,8 +4,8 @@ import Layout from "../layouts/Layout.astro"
 import Hero from "../components/Hero";
 import CMS from "../../lib/cms";
 
-const landingPageContent  =  await CMS.landingPage();
+const downloadPageContent  =  await CMS.downloadPage();
 ---
-<Layout title="MLVET">
-		<Hero content={landingPageContent}/>
+<Layout title="MLVET | Download">
+		<div>{JSON.stringify(downloadPageContent)}</div>
 </Layout>
