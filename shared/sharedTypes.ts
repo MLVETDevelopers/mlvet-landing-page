@@ -44,6 +44,9 @@ export interface OsDownloadData {
   os: 'macOS' | 'linux' | 'windows';
   x86Url: string;
   armUrl: string;
+  osLogo: {
+    data: ImageData;
+  };
 }
 
 export interface DownloadPageContent {
