@@ -1,7 +1,7 @@
 ---
-// Component Imports
+// Imports
 import Layout from '../layouts/Layout.astro'
-import Hero from '../components/Hero'
+import Hero from '../components/Hero.astro'
 import CMS from '../../lib/cms'
 
 const landingPageContent = await CMS.landingPage()
@@ -16,11 +16,4 @@ const landingPageContent = await CMS.landingPage()
     <div>
         <p>test</p>
     </div>
-    <!-- <div class="flex flex-col">
-        {
-            landingPageContent.attributes.contentBlock.map((block) => {
-                return <div>{JSON.stringify(block)}</div>
-            })
-        }
-    </div> -->
 </Layout>
