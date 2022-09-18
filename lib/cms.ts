@@ -10,7 +10,7 @@ namespace CMS {
   }
 
   export const downloadPage = async (): Promise<DownloadPageContent> => {
-    const res = await fetch(`${base}/download-page?populate=*`);
+    const res = await fetch(`${base}/download-page?populate[0]=osDownloadUrl&populate[1]=osDownloadUrl.osLogo`);
     const data = await res.json();
     return data.data as DownloadPageContent;
   }
