@@ -3,6 +3,7 @@
 import Layout from '../layouts/Layout.astro'
 import Hero from '../components/Hero.astro'
 import CMS from '../../lib/cms'
+import ContentBlock from '../components/ContentBlock.astro';
 
 const landingPageContent = await CMS.landingPage()
 ---
@@ -13,7 +14,11 @@ const landingPageContent = await CMS.landingPage()
         downloadButtonText={landingPageContent.attributes.downloadButtonText}
         heroImage={landingPageContent.attributes.heroImage.data}
     />
-    <div>
-        <p>test</p>
+    <div class="flex flex-col items-stretch max-w-4xl mt-24">
+        {landingPageContent.attributes.contentBlock.map((block) => (
+					<ContentBlock
+						contentBlock={block}
+					/>
+				))}
     </div>
 </Layout>
