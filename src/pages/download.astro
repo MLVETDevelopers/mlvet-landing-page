@@ -2,26 +2,20 @@
 // Imports
 import Layout from "../layouts/Layout.astro"
 import CMS from "../../lib/cms";
+import DownloadBlock from "../components/DownloadBlock.astro";
 
 const downloadPageContent = await CMS.downloadPage();
 ---
 
 <Layout title="MLVET | Download">
-		<!-- <div>{JSON.stringify(downloadPageContent.attributes)}</div> -->
-		<div class="flex flex-col bg-grey-600 w-screen h-screen">
-			<div>nav bar</div>
+		<div class="flex flex-col bg-grey-600 w-screen min-h-screen">
 			<div class="flex flex-1 flex-col justify-center items-center">
-				<p>Download MLVET</p>
-				<div class="flex flex-col md:flex-row gap-5">
+				<p class="font-medium text-yellow-500 text-5xl">Download MLVET</p>
+				<div class="flex flex-col md:flex-row gap-20 pt-24">
 					{downloadPageContent.attributes.osDownloadUrl.map((osLink) => 
-						<div class="flex flex-col items-center">
-							<img class="object-scale-down w-40 h-40" src={osLink.osLogo.data.attributes.url} />
-							<a href={osLink.x86Url}>{`${osLink.os} ${osLink.armUrl ? '(intel)' : ''}`}</a>
-							{osLink.armUrl && <a href={osLink.armUrl}>{`${osLink.os} (ARM)`}</a>}
-						</div>
+						<DownloadBlock downloadData={osLink} />
 					)}
 				</div>
 			</div>
-			<div>footer</div>
 		</div>
 </Layout>
