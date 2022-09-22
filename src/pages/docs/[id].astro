@@ -1,0 +1,32 @@
+---
+// Imports
+import Layout from "../../layouts/Layout.astro"
+import CMS from "../../../lib/cms";
+
+interface StaticPaths {
+  params: {id: string}
+}
+
+export async function getStaticPaths(): Promise<StaticPaths[]> {
+
+  const helpDocs = await CMS.helpDocs();
+
+  return helpDocs.data.map((doc) => {
+    return {
+      params: {id : doc.id.toString()}
+    }
+  });
+}
+
+const { id } = Astro.params as StaticPaths['params'];
+const helpDoc = await CMS.helpDoc(id);
+
+---
+
+<Layout title={`${helpDoc.attributes.title} - MLVET Docs`}>
+		<div class="flex flex-col w-screen min-h-screen">
+			<p>Atricle {id}</p>
+      <p>{helpDoc.attributes.title}</p>
+      <p>{helpDoc.attributes.content}</p>
+		</div>
+</Layout>

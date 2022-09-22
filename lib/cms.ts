@@ -1,4 +1,4 @@
-import { DownloadPageContent, LandingPageContent } from "../shared/sharedTypes";
+import { DownloadPageContent, HelpDocArticle, HelpDocArticlesData, LandingPageContent } from "../shared/sharedTypes";
 
 namespace CMS {
   const base = 'https://mlvet-cms.herokuapp.com/api';
@@ -13,6 +13,18 @@ namespace CMS {
     const res = await fetch(`${base}/download-page?populate[0]=osDownloadUrl&populate[1]=osDownloadUrl.osLogo`);
     const data = await res.json();
     return data.data as DownloadPageContent;
+  }
+
+  export const helpDocs = async (): Promise<HelpDocArticlesData> => {
+    const res = await fetch(`${base}/help-doc-articles?fields[0]=title`);
+    const data = await res.json();
+    return data as HelpDocArticlesData;
+  }
+
+  export const helpDoc = async (id: string): Promise<HelpDocArticle> => {
+    const res = await fetch(`${base}/help-doc-articles/${id}?populate=*`);
+    const data = await res.json();
+    return data.data as HelpDocArticle;
   }
 }
 

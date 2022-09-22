@@ -1,3 +1,12 @@
+export interface cmsMetaData {
+    pagination: {
+      page: number;
+      pageSize: number;
+      pageCount: number;
+      total: number;
+    }
+}
+
 export interface ImageData {
   id: number;
   attributes: {
@@ -58,4 +67,42 @@ export interface DownloadPageContent {
     title: string;
     osDownloadUrl: OsDownloadData[];
   }
+}
+
+export interface HelpDocCategory {
+  id: number;
+  attributes: {
+    name: string,
+    createdAt: Date, 
+    updatedAt: Date, 
+    publishedAt: Date, 
+  }
+}
+
+export interface HelpDocCategoriesData {
+  data: HelpDocCategory[];
+  meta: cmsMetaData;
+}
+
+export interface HelpDocArticle {
+  id: number;
+  attributes: {
+    title: string,
+    content: string,
+    createdAt: Date,
+    updatedAt: Date,
+    publishedAt: Date,
+  }
+}
+
+export interface HelpDocArticleTitle {
+  id: number;
+  attributes: {
+    title: string,
+  }
+}
+
+export interface HelpDocArticlesData {
+  data: HelpDocArticleTitle[];
+  meta: cmsMetaData;
 }
