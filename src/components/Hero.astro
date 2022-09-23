@@ -18,7 +18,11 @@ const { tagline, downloadButtonText, heroImage } = Astro.props as HeroProps
     <div class="flex flex-col flex-1 justify-around p-4">
         <div class="w-full text-6xl">{tagline}</div>
         <div>
-            <PrimaryButton class="flex-none" text={downloadButtonText} />
+            <PrimaryButton
+                class="flex-none"
+                text={downloadButtonText}
+                link="/download"
+            />
         </div>
     </div>
     <div class="flex md:flex-1 p-4 justify-end">
