@@ -1,0 +1,19 @@
+---
+import PrimaryButton from './PrimaryButton.astro'
+
+interface CTAProps {}
+
+const {} = Astro.props as CTAProps
+---
+
+<div
+    class="flex flex-col bg-grey-600 justify-center items-center w-full [clip-path:inset(0_-100vmax)] [box-shadow:0_0_0_100vmax_#3A3A3A]"
+>
+    <div class="text-yellow-500 text-3xl font-medium pt-20">
+        Get started for free
+    </div>
+    <div class="text-grey-300 text-lg font-light pt-1 pb-6">
+        Available for Mac, Windows, and Linux
+    </div>
+    <PrimaryButton text="Download" link="/download" />
+</div>
