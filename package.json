@@ -16,6 +16,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
+    "date-fns": "^2.29.3",
     "prettier": "^2.7.1",
     "react-markdown": "^8.0.3",
     "remark-breaks": "^3.0.2",

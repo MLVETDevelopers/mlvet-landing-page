@@ -1,5 +1,6 @@
 ---
 // Imports
+import { format } from 'date-fns';
 import Layout from "../../layouts/Layout.astro"
 import CMS from "../../../lib/cms";
 import Markdown from '../../components/Markdown';
@@ -28,11 +29,10 @@ const helpDoc = await CMS.helpDoc(id);
 		<div class="flex flex-col w-screen flex-1 py-12 px-12 max-w-4xl">
       <div class="flex justify-between items-end pb-5">
         <p class="text-3xl font-bold">{helpDoc.attributes.title}</p>
-        <div class="flex flex-col">
+        <div class="flex flex-col items-end">
           <p class="text-sm font-bold">Last Updated</p>
-          <p class="text-sm">{helpDoc.attributes.updatedAt}</p>
+          <p class="text-sm">{format(new Date(helpDoc.attributes.updatedAt), 'dd/MM/yyyy hh:mm aaa')}</p>
         </div>
-        
       </div>
       <Markdown children={helpDoc.attributes.content} />
 		</div>
