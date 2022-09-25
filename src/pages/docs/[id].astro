@@ -2,6 +2,7 @@
 // Imports
 import Layout from "../../layouts/Layout.astro"
 import CMS from "../../../lib/cms";
+import Markdown from '../../components/Markdown';
 
 interface StaticPaths {
   params: {id: string}
@@ -24,9 +25,15 @@ const helpDoc = await CMS.helpDoc(id);
 ---
 
 <Layout title={`${helpDoc.attributes.title} - MLVET Docs`}>
-		<div class="flex flex-col w-screen min-h-screen">
-			<p>Atricle {id}</p>
-      <p>{helpDoc.attributes.title}</p>
-      <p>{helpDoc.attributes.content}</p>
+		<div class="flex flex-col w-screen flex-1 py-12 px-12 max-w-4xl">
+      <div class="flex justify-between items-end pb-5">
+        <p class="text-3xl font-bold">{helpDoc.attributes.title}</p>
+        <div class="flex flex-col">
+          <p class="text-sm font-bold">Last Updated</p>
+          <p class="text-sm">{helpDoc.attributes.updatedAt}</p>
+        </div>
+        
+      </div>
+      <Markdown children={helpDoc.attributes.content} />
 		</div>
 </Layout>
