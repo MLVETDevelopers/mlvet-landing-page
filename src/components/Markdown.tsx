@@ -4,10 +4,6 @@ import remarkBreaks from 'remark-breaks'
 
 const Markdown = ({ children }: {children: string}) => {
 
-  const test = (blah: any): any => {
-    return test
-  }
-
   return (
     <ReactMarkdown 
       children={children}
