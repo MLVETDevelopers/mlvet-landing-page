@@ -7,8 +7,16 @@ const helpDocs = await CMS.helpDocs();
 ---
 
 <Layout title="MLVET | Docs">
-		<div class="flex flex-col w-screen">
-      <p>Need some help?</p>
-			{helpDocs.data.map((doc) => <a href={`/docs/${doc.id}`}>{doc.attributes.title}</a>)}
+		<div class="flex flex-col w-screen justify-center max-w-4xl">
+			<div class="pt-24">
+				<p class="text-5xl font-medium text-center">Need some help?</p>
+			</div>
+      <div class="flex flex-col pt-20 gap-y-2"> 
+				{helpDocs.data.map((doc) => 
+					<div>
+						<a class="text-yellow-600 underline" href={`/docs/${doc.id}`}>{doc.attributes.title}</a>
+					</div>
+				)}
+			</div>
 		</div>
 </Layout>

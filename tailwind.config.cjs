@@ -3,12 +3,8 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-    // content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-    content: [
-        './src/components/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
-        './src/pages/*.{astro, html}',
-        './src/layouts/*.{astro, html}',
-    ],
+    // 
+    content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
     theme: {
         colors: {
             grey: {
@@ -18,8 +14,8 @@ module.exports = {
                 900: '#121518',
             },
             yellow: {
-                600: '#E39E49',
                 500: '#FFB355',
+                600: '#E39E49',
             },
         },
         fontFamily: {
