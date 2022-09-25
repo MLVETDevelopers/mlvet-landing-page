@@ -3,13 +3,12 @@
 import Layout from "../../layouts/Layout.astro"
 import CMS from "../../../lib/cms";
 
-const helpPageCategories = await CMS.downloadPage();
+const helpDocs = await CMS.helpDocs();
 ---
 
 <Layout title="MLVET | Docs">
-		<div class="flex flex-col w-screen min-h-screen py-32">
+		<div class="flex flex-col w-screen">
       <p>Need some help?</p>
-			<p>Editor</p>
-			<a>Atricle 1</a>
+			{helpDocs.data.map((doc) => <a href={`/docs/${doc.id}`}>{doc.attributes.title}</a>)}
 		</div>
 </Layout>
