@@ -1,23 +1,31 @@
 ---
 //Imports
-import { ImageData } from "../../shared/sharedTypes";
-import PrimaryButton from "./PrimaryButton.astro"; 
+import { ImageData } from '../../shared/sharedTypes'
+import PrimaryButton from './PrimaryButton.astro'
 
 interface HeroProps {
-    tagline: string;
-    downloadButtonText: string;
-    heroImage: ImageData[];
+    tagline: string
+    downloadButtonText: string
+    heroImage: ImageData[]
 }
 
-const {  tagline, downloadButtonText, heroImage } = Astro.props as HeroProps
-
+const { tagline, downloadButtonText, heroImage } = Astro.props as HeroProps
 ---
-<div class="flex flex-row flex-wrap basis-1/2 w-full bg-grey-600 text-yellow-500 p-5">
-    <div class="flex-col flex-1 align-middle justify-between">
-        <div class="w-full text-6xl">{tagline} </div>
-        <PrimaryButton text={downloadButtonText}/>
+
+<div
+    class="flex flex-row flex-wrap basis-1/2 w-full bg-grey-600 text-yellow-500 p-5 justify-around [clip-path:inset(0_-100vmax)] [box-shadow:0_0_0_100vmax_#3A3A3A]"
+>
+    <div class="flex flex-col flex-1 justify-around p-4">
+        <div class="w-full text-6xl">{tagline}</div>
+        <div>
+            <PrimaryButton
+                class="flex-none"
+                text={downloadButtonText}
+                link="/download"
+            />
+        </div>
     </div>
-    <div class="flex-1 bg-grey-900">
-        <img src={[...heroImage].pop()?.attributes.url ?? ""}/>
+    <div class="flex md:flex-1 p-4 justify-end">
+        <img src={[...heroImage].pop()?.attributes.url ?? ''} />
     </div>
 </div>

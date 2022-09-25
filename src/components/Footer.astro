@@ -1,0 +1,24 @@
+---
+interface FooterProps {}
+
+const {} = Astro.props as FooterProps
+---
+
+<div
+    class="flex flex-col justify-around items-center bg-grey-600 text-grey-300 w-full gap-16 p-16 [box-shadow:0_-2px_0_0_#3A3A3A]"
+>
+    <a
+        class="flex flex-row justify-center items-center gap-4"
+        href="https://github.com/chloebrett/mlvet"
+    >
+        <div class="text-lg">Contribute to the project on GitHub</div>
+        <img class="object-scale-down h-8" src="github-logo.png" />
+    </a>
+    <div class="flex flex-row justify-center items-center gap-6">
+        <a>Terms</a>
+        <a>Privacy</a>
+        <a>Docs</a>
+        <a href="/download">Download</a>
+        <a href="https://github.com/chloebrett/mlvet">GitHub</a>
+    </div>
+</div>
