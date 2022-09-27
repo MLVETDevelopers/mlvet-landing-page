@@ -3,7 +3,7 @@
 import Layout from "../../layouts/Layout.astro"
 import CMS from "../../../lib/cms";
 
-const helpDocs = await CMS.helpDocs();
+const helpDocs = await CMS.helpDocCategories();
 ---
 
 <Layout title="MLVET | Docs">
@@ -12,11 +12,14 @@ const helpDocs = await CMS.helpDocs();
 				<p class="text-5xl font-bold text-center">Need some help?</p>
 			</div>
       <div class="flex flex-col pt-20 gap-y-2"> 
-				{helpDocs.data.map((doc) => 
+				{helpDocs.map((doc) => 
 					<div>
-						<a class="text-yellow-600 underline" href={`/docs/${doc.id}`}>{doc.attributes.title}</a>
+						<p>{doc.attributes.name ?? 'None'}</p>
+						{doc.attributes.help_doc_articles.data.map((article) => <a class="text-yellow-600 underline" href={`/docs/${article.id}`}>{article.attributes.title}</a>)}
 					</div>
 				)}
 			</div>
 		</div>
 </Layout>
+
+<!--  -->

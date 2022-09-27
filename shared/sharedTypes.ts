@@ -96,10 +96,28 @@ export interface HelpDocArticle {
   }
 }
 
+
+
+export interface HelpDocArticlesCategory {
+  id: number,
+  attributes: {
+      name: string,
+      help_doc_articles: { data: HelpDocArticle[] },
+  }
+}
+
 export interface HelpDocArticleTitle {
   id: number;
   attributes: {
     title: string,
+    help_doc_category?: {
+      data: {
+          id: number,
+          attributes: {
+              name: string
+          }
+      }
+  }
   }
 }
 
