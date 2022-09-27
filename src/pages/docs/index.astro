@@ -1,25 +1,38 @@
 ---
 // Imports
-import Layout from "../../layouts/Layout.astro"
-import CMS from "../../../lib/cms";
+import Layout from '../../layouts/Layout.astro'
+import CMS from '../../../lib/cms'
 
-const helpDocs = await CMS.helpDocCategories();
+const helpDocs = await CMS.helpDocCategories()
 ---
 
 <Layout title="MLVET | Docs">
-		<div class="flex flex-col w-screen justify-center max-w-4xl">
-			<div class="pt-24">
-				<p class="text-5xl font-bold text-center">Need some help?</p>
-			</div>
-      <div class="flex flex-col pt-20 gap-y-2"> 
-				{helpDocs.map((doc) => 
-					<div>
-						<p>{doc.attributes.name ?? 'None'}</p>
-						{doc.attributes.help_doc_articles.data.map((article) => <a class="text-yellow-600 underline" href={`/docs/${article.id}`}>{article.attributes.title}</a>)}
-					</div>
-				)}
-			</div>
-		</div>
+    <div class="flex flex-col w-screen justify-center max-w-4xl">
+        <div class="pt-24">
+            <p class="text-5xl font-bold text-center">Need some help?</p>
+        </div>
+        <div class="grid grid-cols-2 grid-rows-2 py-20 gap-10">
+            {
+                helpDocs.map((doc) => (
+                    <div class="flex flex-col bg-grey-200 rounded-lg p-4 shadow-lg">
+                        <p class="text-yellow-500 text-3xl pb-4 font-medium">
+                            {doc.attributes.name ?? 'None'}
+                        </p>
+                        {doc.attributes.help_doc_articles.data.map(
+                            (article) => (
+                                <a
+                                    class="text-grey-600 hover:underline hover:text-yellow-500"
+                                    href={`/docs/${article.id}`}
+                                >
+                                    {article.attributes.title}
+                                </a>
+                            )
+                        )}
+                    </div>
+                ))
+            }
+        </div>
+    </div>
 </Layout>
 
 <!--  -->
