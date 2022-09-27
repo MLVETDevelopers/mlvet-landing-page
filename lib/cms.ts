@@ -1,12 +1,18 @@
-import { DownloadPageContent, HelpDocArticle, HelpDocArticlesCategory, HelpDocArticlesData, LandingPageContent } from "../shared/sharedTypes";
+import { ContentBlockData, DownloadPageContent, HelpDocArticle, HelpDocArticlesCategory, HelpDocArticlesData, LandingPageContent } from "../shared/sharedTypes";
 
 namespace CMS {
   const base = 'https://mlvet-cms.herokuapp.com/api';
 
   export const landingPage = async (): Promise<LandingPageContent> => {
-    const res = await fetch(`${base}/landing-page?populate=*`);
+    const res = await fetch(`${base}/landing-page?&populate[0]=heroImage`);
     const data = await res.json();
     return data.data as LandingPageContent;
+  }
+
+  export const landingPageContentBlocks = async (): Promise<ContentBlockData[]> => {
+    const res = await fetch(`${base}/landing-page?populate[0]=contentBlock&populate[1]=contentBlock.media`);
+    const data = await res.json();
+    return data.data.attributes.contentBlock as ContentBlockData[];
   }
 
   export const downloadPage = async (): Promise<DownloadPageContent> => {

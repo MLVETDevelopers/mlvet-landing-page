@@ -26,6 +26,6 @@ const { tagline, downloadButtonText, heroImage } = Astro.props as HeroProps
         </div>
     </div>
     <div class="flex md:flex-1 md:w-auto w-full justify-end">
-        <img src={[...heroImage].pop()?.attributes.url ?? ''} />
+        <img class="object-contain object-center rounded-lg" src={[...heroImage].pop()?.attributes.url ?? ''} />
     </div>
 </div>

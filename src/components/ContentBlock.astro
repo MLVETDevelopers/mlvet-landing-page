@@ -10,32 +10,25 @@ const { contentBlock } = Astro.props as HeroProps
 
 ---
 {contentBlock.type === 'center' ? (
-  <div class="flex flex-col justify-between items-center mb-40">
+  <div class="flex flex-col justify-between items-center mb-20 md:mb-40">
     <div class="flex flex-col max-w-md pb-4">
       <p class="font-medium text-2xl pb-5 text-center">{contentBlock.title}</p>
       <p class="text-center">{contentBlock.body}</p>
     </div>
-    <div class=" w-full aspect-[16/9] bg-grey-300 rounded-lg" />
+    <div class="flex w-full aspect-[16/9] justify-center items-center">
+      <img class="object-contain object-center rounded-lg" src={contentBlock?.media?.data?.attributes.url} />
+    </div>
   </div>
 ) : (
-
-  // <div class={`flex flex-col justify-between items-center mb-40 ${contentBlock.type === 'left' ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
-  //   <div class="flex grow-[2] flex-col justify-center text-center md:text-left">
-  //     <p class="font-medium text-2xl pb-5">{contentBlock.title}</p>
-  //     <p>{contentBlock.body}</p>
-  //   </div>
-  //     <div class="grow-[2] h-72 bg-grey-300 rounded-lg"></div>
-  // </div>
-
-  <div class={`flex flex-col justify-between items-center mb-40 gap-10 ${contentBlock.type === 'left' ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+  <div class={`flex flex-col justify-between items-center mb-20 md:mb-40 gap-10 ${contentBlock.type === 'left' ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
     <div class="flex basis-2/3 h-72 justify-center items-center">
       <div class="flex flex-col justify-center text-center md:text-left">
         <p class="font-medium text-2xl pb-5">{contentBlock.title}</p>
         <p>{contentBlock.body}</p>
       </div>
     </div>  
-    <div class="flex aspect-[16/9] items-center justify-center">
-      <img class="object-contain object-center rounded-lg" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=0.672xw:1.00xh;0.166xw,0&resize=640:*" />
+    <div class="flex md:max-h-72 h-auto aspect-[16/9] items-center justify-center">
+      <img class="object-contain object-center rounded-lg" src={contentBlock?.media?.data?.attributes.url} />
     </div>
   </div>
 )}

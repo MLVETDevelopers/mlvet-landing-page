@@ -29,7 +29,7 @@ export interface ContentBlockData {
   title: string;
   body: string;
   type: 'center' | 'left' | 'right';
-  media: {data: ImageData};
+  media?: {data?: ImageData};
 }
 
 export interface LandingPageContent {
@@ -45,7 +45,6 @@ export interface LandingPageContent {
     heroImage: {
       data: ImageData[];
     };
-    contentBlock: ContentBlockData[];
   }
 }
 
