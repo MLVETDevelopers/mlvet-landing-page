@@ -21,7 +21,7 @@ const helpDocs = await CMS.helpDocCategories()
                         {doc.attributes.help_doc_articles.data.map(
                             (article) => (
                                 <a
-                                    class="text-grey-600 hover:underline hover:text-yellow-500 hover:duration-200 duration-200"
+                                    class="text-grey-600 hover:underline hover:text-yellow-500 hover:rotate-180 hover:text-right"
                                     href={`/docs/${article.id}`}
                                 >
                                     {article.attributes.title}
