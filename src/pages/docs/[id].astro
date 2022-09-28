@@ -27,9 +27,9 @@ const helpDoc = await CMS.helpDoc(id);
 
 <Layout title={`${helpDoc.attributes.title} - MLVET Docs`}>
 		<div class="flex flex-col w-screen flex-1 py-12 px-12 max-w-4xl">
-      <div class="flex justify-between items-end pb-5">
+      <div class="flex justify-between md:flex-row flex-col items-start md:items-end md:gap-0 gap-2 pb-5">
         <p class="text-3xl font-bold">{helpDoc.attributes.title}</p>
-        <div class="flex flex-col items-end">
+        <div class="flex md:flex-col flex-row items-start md:items-end md:text-right md:gap-0 gap-2">
           <p class="text-sm font-bold">Last Updated</p>
           <p class="text-sm">{format(new Date(helpDoc.attributes.updatedAt), 'dd/MM/yyyy hh:mm aaa')}</p>
         </div>
