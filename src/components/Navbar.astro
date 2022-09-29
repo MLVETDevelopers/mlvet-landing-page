@@ -11,8 +11,13 @@ const {} = Astro.props as NavbarProps
         ><img class="object-scale-down h-8" src="/mlvet_logo_transparent.png" />
     </a>
     <div class="flex flex-row justify-end items-center text-yellow-500 gap-6">
-        <a href="/docs">Docs</a>
-        <a href="/download">Download</a>
+        <a class="hover:underline hover:duration-200 duration-200" href="/docs"
+            >Docs</a
+        >
+        <a
+            class="hover:underline hover:duration-200 duration-200"
+            href="/download">Download</a
+        >
         <a href="https://github.com/chloebrett/mlvet">
             <img class="object-scale-down h-8" src="/github-logo.png" />
         </a>
