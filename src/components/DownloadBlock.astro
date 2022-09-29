@@ -1,26 +1,37 @@
 ---
 //Imports
-import { OsDownloadData } from "../../shared/sharedTypes";
+import { OsDownloadData } from '../../shared/sharedTypes'
 
 interface HeroProps {
-    downloadData: OsDownloadData;
+    downloadData: OsDownloadData
 }
 
 const { downloadData } = Astro.props as HeroProps
-
 ---
+
 <div class="flex flex-col items-center">
-  <img class="object-scale-down w-40 h-40" src={downloadData.osLogo.data.attributes.url} />
-  <div class="flex flex-col pt-8 gap-2">
-      <a class="text-yellow-500" href={downloadData.x86Url}>
-        <i class="fa-solid fa-download pr-2"></i>
-        {`${downloadData.os} ${downloadData.armUrl ? '(intel)' : ''}`}
-      </a>
-    {downloadData.armUrl &&
-      <a class="text-yellow-500" href={downloadData.armUrl}>
-        <i class="fa-solid fa-download pr-2"></i>
-        {`${downloadData.os} (ARM)`}
-      </a>
-    }
-  </div>
+    <img
+        class="object-scale-down w-40 h-40"
+        src={downloadData.osLogo.data.attributes.url}
+    />
+    <div class="flex flex-col pt-8 gap-2">
+        <a
+            class="text-yellow-500 hover:underline hover:duration-200 duration-200"
+            href={downloadData.x86Url}
+        >
+            <i class="fa-solid fa-download pr-2"></i>
+            {`${downloadData.os} ${downloadData.armUrl ? '(intel)' : ''}`}
+        </a>
+        {
+            downloadData.armUrl && (
+                <a
+                    class="text-yellow-500 hover:underline hover:duration-200 duration-200"
+                    href={downloadData.armUrl}
+                >
+                    <i class="fa-solid fa-download pr-2" />
+                    {`${downloadData.os} (ARM)`}
+                </a>
+            )
+        }
+    </div>
 </div>
