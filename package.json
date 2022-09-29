@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "dev": "TAILWIND_MODE=watch astro dev",
-    "start": "TAILWIND_MODE=watch astro dev",
+    "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
