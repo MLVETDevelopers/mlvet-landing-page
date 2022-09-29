@@ -1,13 +1,14 @@
 {
   "private": true,
   "scripts": {
-    "dev": "TAILWIND_MODE=watch astro dev",
-    "start": "TAILWIND_MODE=watch astro dev",
+    "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "devDependencies": {
+    "@astrojs/partytown": "^1.0.0",
     "@astrojs/react": "^1.1.4",
     "@astrojs/tailwind": "^1.0.0",
     "@types/react": "^18.0.21",
