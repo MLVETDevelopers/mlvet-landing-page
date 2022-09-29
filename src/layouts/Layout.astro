@@ -1,6 +1,9 @@
 ---
+import Footer from '../components/Footer.astro'
+import Navbar from '../components/Navbar.astro'
+
 export interface Props {
-	title: string
+    title: string
 }
 
 const { title } = Astro.props as Props
@@ -8,20 +11,28 @@ const { title } = Astro.props as Props
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
-	<body class="flex h-screen p-5 bg-grey-700 w-full">
-		<slot />
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            src="https://kit.fontawesome.com/efb3dd9635.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body class="flex items-center w-screen flex-col min-h-screen" >
+        <Navbar />
+        <main class="flex flex-1 flex-col items-center max-w-6xl">
+            <slot />
+        </main>
+        <Footer />
+    </body>
 </html>

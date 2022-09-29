@@ -1,19 +1,27 @@
 ---
+// Imports
 import Layout from '../layouts/Layout.astro'
-import DownloadButton, {
-	DownloadButtonTypes,
-} from '../components/DownloadButton.astro'
+import Hero from '../components/Hero.astro'
+import CMS from '../../lib/cms'
+import ContentBlock from '../components/ContentBlock.astro'
+import CallToAction from '../components/CallToAction.astro'
+
+const landingPageContent = await CMS.landingPage()
+const contentBlocks = await CMS.landingPageContentBlocks()
 ---
 
 <Layout title="MLVET">
-	<main
-		class="h-full w-full flex items-center xs:justify-center flex-col xs:p-4 sm:p-6 md:p-16 pt-12 sm:pt-32 gap-y-32 sm:gap-y-24"
-	>
-		<img src="./mlvet_logo_transparent.png" class="object-cover md:w-3/4" />
-		<div class="flex flex-col gap-y-6 sm:flex-row gap-x-4">
-			<DownloadButton type={DownloadButtonTypes.WINDOWS} />
-			<DownloadButton type={DownloadButtonTypes.MAC} />
-			<DownloadButton type={DownloadButtonTypes.LINUX} />
-		</div>
-	</main>
+    <Hero
+        tagline={landingPageContent.attributes.tagline}
+        downloadButtonText={landingPageContent.attributes.downloadButtonText}
+        heroImage={landingPageContent.attributes.heroImage.data}
+    />
+    <div class="flex flex-col items-stretch max-w-4xl mt-24 w-full px-5">
+        {
+            contentBlocks.map((block) => (
+                <ContentBlock contentBlock={block} />
+            ))
+        }
+    </div>
+    <CallToAction />
 </Layout>

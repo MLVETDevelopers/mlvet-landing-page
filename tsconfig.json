@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "types": ["astro/client"],
+    "target": "es2021",
+    "module": "commonjs",
+    "lib": ["dom", "esnext"],
+    "strict": true,
+    "pretty": true,
+  }
+}

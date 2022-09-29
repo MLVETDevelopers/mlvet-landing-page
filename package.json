@@ -1,18 +1,25 @@
 {
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "dev": "TAILWIND_MODE=watch astro dev",
+    "start": "TAILWIND_MODE=watch astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "devDependencies": {
+    "@astrojs/react": "^1.1.4",
     "@astrojs/tailwind": "^1.0.0",
+    "@types/react": "^18.0.21",
     "astro": "^1.0.0-rc.8",
-    "sass": "^1.54.7"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "prettier": "^2.7.1"
+    "date-fns": "^2.29.3",
+    "prettier": "^2.7.1",
+    "react-markdown": "^8.0.3",
+    "remark-breaks": "^3.0.2",
+    "remark-gfm": "^3.0.1"
   }
 }
