@@ -23,6 +23,17 @@ const { title } = Astro.props as Props
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
             rel="stylesheet"
         />
+        <!-- Google tag (gtag.js) -->
+        <script 
+            type="text/partytown" 
+            src="https://www.googletagmanager.com/gtag/js?id=G-DME2KW049R"
+        ></script>
+        <script type="text/partytown">
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-DME2KW049R');
+        </script>
         <script
             src="https://kit.fontawesome.com/efb3dd9635.js"
             crossorigin="anonymous"
